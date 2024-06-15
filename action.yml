@@ -17,6 +17,10 @@ inputs:
     description: "Badge style"
     required: false
     default: "flat"
+  write-style:
+    description: "commit or pr"
+    required: false
+    default: "commit"
 outputs:
   time: # id of output
     description: "The time we greeted you"

@@ -1,12 +1,28 @@
-# Hello world javascript action
+# sample actions
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+練習用のactions。repositoryを一覧してissueの数などをreadmeに追記するなど。
 
 ## Inputs
 
 ### `who-to-greet`
 
 **Required** The name of the person to greet. Default `"World"`.
+
+### `github-pat-token`
+
+**Required** もしかしたら github.token でもいいかも。 default `"nya"`.
+
+### `badges`
+
+**Required** 何を作るか。default: `"nya"`.
+
+### `badge-style`
+
+**Required** 何を作るか。default: `"flat"`
+
+### `write-style`
+
+**Required** バッジを作ったとき、commit にするか PR にするか default: `"commit"`
 
 ## Outputs
 
@@ -17,7 +33,12 @@ The time we greeted you.
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
-with:
-  who-to-greet: "Mona the Octocat"
+- name: 0num4/Hello World
+  uses: 0num4/sample-gh-actions@v1.1.8
+  with:
+    who-to-greet: "Mona the Octocat"
+    github-pat-token: ${{ secrets.GH_PAT_TOKEN }}
+    badges: "hello"
+    badge-style: "world"
+    write-style: "commit"
 ```

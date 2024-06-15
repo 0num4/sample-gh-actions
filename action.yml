@@ -5,6 +5,18 @@ inputs:
     description: "Who to greet"
     required: true
     default: "World"
+  github-pat-token:
+    description: "GitHub PAT token"
+    required: true
+    default: ${{ secrets.GITHUB_PAT_TOKEN }}
+  badges:
+    description: "Badges"
+    required: false
+    default: "true"
+  badge-style:
+    description: "Badge style"
+    required: false
+    default: "flat"
 outputs:
   time: # id of output
     description: "The time we greeted you"

@@ -26,6 +26,7 @@ This project was created using `bun init` in bun v1.1.9. [Bun](https://bun.sh) i
 https://docs.github.com/ja/actions/creating-actions/about-custom-actions
 https://qiita.com/HeRo/items/e2d5e3bc3dbe810f0482
 
+
 アクションの実行環境は主に 2 つある
 
 - javascript アクション
@@ -33,3 +34,6 @@ https://qiita.com/HeRo/items/e2d5e3bc3dbe810f0482
 
 sdk 的なサムシング
 https://github.com/actions/toolkit
+
+template
+https://github.com/actions/typescript-action

@@ -1,8 +1,8 @@
 import * as core from '@actions/core';
-import * as github from '@actions/github';
+import { getOctokit, context } from '@actions/github';
 console.log("Hello via Bun2!");
 
-async function isEmpty(owner: string, repo: string, octokit): Promise<boolean> {
+async function isEmpty(owner: string, repo: string, octokit: any): Promise<boolean> {
     try {
         const { data: contents } = await octokit.repos.getContent({
             owner,
@@ -26,7 +26,7 @@ try {
     const token = core.getInput('github-pat-token');
     const inputBadges = core.getInput('badges');
     const badgeStyle = core.getInput('badge-style');
-    const octokit = github.getOctokit(token);
+    const octokit = getOctokit(token);
     const repos = await octokit.paginate(octokit.rest.repos.listForAuthenticatedUser, {
         per_page: 100,
         affiliation: "owner",
@@ -40,8 +40,8 @@ try {
             console.log(`Repo ${repo.name} is empty`);
         } else {
             const readmeResponse = await octokit.rest.repos.getReadme({
-                owner: github.context.repo.owner,
-                repo: github.context.repo.repo,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
             });
             if (readmeResponse.status !== 200) {
                 console.log(`No README found for repo ${repo.name}`);
@@ -58,13 +58,13 @@ try {
             // });
 
             const readme = Buffer.from(readmeResponse.data.content, 'base64').toString();
-            
+
         }
     }
     console.log(`Hello, ${nameToGreet}!`);
     const time = (new Date()).toTimeString();
     core.setOutput("time", time);
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    const payload = JSON.stringify(context.payload, undefined, 2)
     console.log('The event payload: ', payload);
 } catch (error) {
     const e = error as Error;

@@ -10,19 +10,23 @@
 
 ### `github-pat-token`
 
-**Required** もしかしたら github.token でもいいかも。 default `"nya"`.
+**Required** もしかしたら github.token でもいいかも。 
+Default `"nya"`.
 
 ### `badges`
 
-**Required** 何を作るか。default: `"nya"`.
+**Required** 何を作るか。
+Default: `"nya"`.
 
 ### `badge-style`
 
-**Required** 何を作るか。default: `"flat"`
+**Required** 何を作るか。
+Default: `"flat"`
 
 ### `write-style`
 
-**Required** バッジを作ったとき、commit にするか PR にするか default: `"commit"`
+**Required** バッジを作ったとき、commit にするか PR にするか 
+Default: `"commit"`
 
 ## Outputs
 
